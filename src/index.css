@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .filter-green {
+    filter: hue-rotate(100deg) saturate(1.5);
+  }
+  
+  .filter-red {
+    filter: hue-rotate(-100deg) saturate(1.5);
+  } */

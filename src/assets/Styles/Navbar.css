@@ -1,0 +1,50 @@
+/* Navbar.css */
+
+.navbar {
+    background-color: blue; /* Navbar background color */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Navbar box shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem; /* Navbar brand font size */
+    color: #333; /* Navbar brand text color */
+  }
+  
+  .navbar-toggler {
+    border-color: transparent; /* Remove border color from toggler */
+  }
+  
+  .nav-link {
+    color: #555; /* Navbar link text color */
+    font-weight: 500; /* Navbar link font weight */
+    transition: color 0.3s ease; /* Smooth transition for link color */
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: #007bff; /* Link color on hover or when active */
+  }
+  
+  @media (max-width: 991.98px) {
+    .navbar-collapse {
+      background-color: red; /* Background color for collapsed navbar */
+      border-top: 1px solid #ddd; /* Border top for collapsed navbar */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Box shadow for collapsed navbar */
+      padding-top: 10px; /* Top padding for collapsed navbar */
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s ease; /* Smooth transition for collapse effect */
+      display: none;
+    }
+  }
+  
+  .navbar-collapse.show {
+    display: block;
+  }
+  

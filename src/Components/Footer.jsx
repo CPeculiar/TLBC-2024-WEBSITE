@@ -1,9 +1,9 @@
 import React from "react";
 // import "../assets/Styles/bootstrap.min.css";
 import { Link } from 'react-router-dom';
-import FacebookIcon from './images/facebookIcon.svg';
-import YouTubeIcon from './images/youtubeIcon.svg';
-import TelegramIcon from './images/telegramIcon.svg';
+import Ficon from './images/fbicon.png';
+import Yicon from './images/youtubeicon.png';
+import Ticon from './images/tgicon.png';
 
 const Footer = () => {
   return (
@@ -24,7 +24,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                       <img src={FacebookIcon} alt="Facebook" className="h-10 w-10" />
+                       <img src={Ficon} alt="Facebook" className="h-10 w-10" />
                     </a>
                   </li>
                   <li className="social-icon-item">
@@ -34,7 +34,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img src={YouTubeIcon} alt="YouTube" className="h-10 w-10" />
+                      <img src={Yicon} alt="YouTube" className="h-10 w-10" />
                     </a>
                   </li>
                   <li className="social-icon-item">
@@ -44,7 +44,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img src={TelegramIcon} alt="Telegram" className="h-8 w-8" />
+                      <img src={Ticon} alt="Telegram" className="h-8 w-8" />
                     </a>
                   </li>
                 </ul>

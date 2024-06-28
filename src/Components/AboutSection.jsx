@@ -1,87 +1,94 @@
 // AboutSection.js
 
 import React from "react";
-// import "../assets/Styles/bootstrap.min.css";
-// import "../assets/Styles/bootstrap-icons.css";
+import ContactSection from "./ContactSection";
+import "../assets/Styles/bootstrap.min.css";
+import "../assets/Styles/bootstrap-icons.css";
+import "../assets/Styles/templatemo-festava-live.css";
+import Theword from './images/Theword.jpg'
+import PraiseSession from './images/PraiseSession.jpg'
+import FamilyExperience from './images/FamilyExperience.jpg'
+
 
 const AboutSection = () => {
   return (
     <>
-      <section className="about-section section-padding" id="section_2">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
-              <div className="services-info">
-                <h2 className="text-white mb-4">About TLBC'24</h2>
-                <p className="text-white">
-                  The Lord's Brethren Convocation (TLBC) 2020 is an annual
-                  glorious homecoming of stakeholders in The Lord's Brethren
-                  Nation where we celebrate our partners, victories, joys,
-                  successes, conquests, coups and feats. It is an event that
-                  everyone who joined forces with our vision to push for the
-                  propagation of the Gospel always anticipate with joy and
-                  excitement every year.
-                </p>
-                <p className="text-white">
-                  It's a meeting that affords us the opportunity to celebrate
-                  our pastors, partners and ministry departments in grand style
-                  and also highlights all that has been achieved in the work of
-                  the ministry every year.
-                </p>
-                <p className="text-white">
-                  This year's convocation is going to be a meeting of worship,
-                  teachings, impartation, awards and of course The Lord's
-                  Brethren Family meeting.
-                </p>
-              </div>
+ <section className="about-section section-padding" id="section_2">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
+            <div className="services-info">
+              <h2
+                className="mb-4 text-center"
+                style={{
+                  color: '#FFD700', // Gold color
+                  fontSize: '3rem',
+                }}
+              >
+                About TLBC'24
+              </h2>
+              <p className="text-white" style={{ fontSize: '1.25rem', textAlign: 'justify' }}>
+                The Lord's Brethren Convocation (TLBC) is an annual glorious homecoming of stakeholders in The Lord's Brethren Nation where we celebrate our partners, victories, joys, successes, conquests, coups, and feats. It is an event that everyone who joined forces with our vision to push for the propagation of the Gospel always anticipates with joy and excitement every year.
+              </p>
+              <p className="text-white" style={{ fontSize: '1.25rem', textAlign: 'justify' }}>
+                It's a meeting that affords us the opportunity to celebrate our pastors, partners, and ministry departments in grand style and also highlights all that has been achieved in the work of the ministry every year.
+              </p>
+              <p className="text-white" style={{ fontSize: '1.25rem', textAlign: 'justify' }}>
+                This year's convocation is going to be a meeting of worship, teachings, impartation, awards, and of course, The Lord's Brethren Family meeting.
+              </p>
             </div>
-            <div className="col-lg-6 col-12">
-              <div className="about-text-wrap">
-                <img
-                  src="images/brethren-4-1024x683.jpg"
-                  className="about-image img-fluid"
-                  alt="Brethren"
-                />
-                <div className="about-text-info d-flex">
-                  {/* <div className="d-flex">
-                    <i className="about-text-icon bi-person"></i>
-                  </div> */}
-                  <div className="ms-4">
-                    <h4>Our Annual Homecoming</h4>
-                    <p className="mb-0">An amazing experience</p>
-                  </div>
+          </div>
+          <div className="col-lg-6 col-12">
+            <div className="about-text-wrap">
+              <img
+                src="images/brethren-4-1024x683.jpg"
+                className="about-image img-fluid"
+                alt="Brethren"
+              />
+              <div className="about-text-info d-flex mt-3">
+                <div className="ms-4">
+                  <h4>Our Annual Homecoming</h4>
+                  <p className="mb-0">An amazing experience</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+
       
       <section className="artists-section section-padding" id="section_3">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-12 text-center">
-              <h2 className="mb-4">What to expect</h2>
+              <h2 
+              className="mb-4 text-center"
+                style={{
+                  color: 'black', // Gold color
+                  fontSize: '3.2rem',
+                }}
+              >What to expect</h2>
             </div>
             <div className="col-lg-5 col-12">
               <div className="artists-thumb">
                 <div className="artists-image-wrap">
                   <img
-                    src="images/testimonies.jpg"
+                    src={Theword}
                     className="artists-image img-fluid"
                     alt="Testimonies"
                   />
                 </div>
                 <div className="artists-hover">
                   <p>
-                    <strong>Testimonies</strong>
+                    <strong>The Word</strong>
                   </p>
                 </div>
               </div>
               <div className="artists-thumb">
                 <div className="artists-image-wrap">
                   <img
-                    src="images/dance.jpg"
+                    src={PraiseSession}
                     className="artists-image img-fluid"
                     alt="Dance"
                   />
@@ -110,13 +117,13 @@ const AboutSection = () => {
               </div>
               <div className="artists-thumb">
                 <img
-                  src="images/375195195_715768720594620_736964215072279453_n.jpg"
+                  src={FamilyExperience}
                   className="artists-image img-fluid"
                   alt="Prayers"
                 />
                 <div className="artists-hover">
                   <p>
-                    <strong>Prayers</strong>
+                    <strong>FamilyExperience</strong>
                   </p>
                 </div>
               </div>
@@ -124,8 +131,23 @@ const AboutSection = () => {
           </div>
         </div>
       </section>
+
+      <ContactSection />
+
       
-      <section className="about-section section-padding" id="section_4">
+   
+    </>
+  );
+};
+
+export default AboutSection;
+
+
+
+/*
+
+
+ <section className="about-section section-padding" id="section_4">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 col-12">
@@ -172,8 +194,12 @@ const AboutSection = () => {
           </div>
         </div>
       </section>
-      
-      <section className="contact-section section-padding" id="section_6">
+
+
+
+
+
+         <section className="contact-section section-padding" id="section_6">
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-12 mx-auto">
@@ -294,8 +320,4 @@ const AboutSection = () => {
           </div>
         </div>
       </section>
-    </>
-  );
-};
-
-export default AboutSection;
+*/

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
 import { Country, State } from 'country-state-city';
-// import '../assets/Styles/Partner.css'
+import '../assets/Styles/Partner.css'
 import logo from '../assets/Images/TLBC24Logo2.png'; 
 
 const PartnershipForm = () => {
@@ -106,10 +106,10 @@ const PartnershipForm = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
         
         <div className="relative p-8 rounded-lg shadow-lg w-full max-w-3xl bg-white mx-auto mt-3 mb-3 register-form">
-        //form-header
+        
         <img src={logo} alt="Logo" className="w-20 h-20 mx-auto mb-6" />
           <div className="text-center mb-6 mainTitle">
-            <h2 className="text-blue-500 font-bold text-4xl">
+            <h2 className="text-yellow-500 font-bold text-4xl">
               {" "}
               Partnership Form
             </h2>
@@ -207,7 +207,7 @@ const PartnershipForm = () => {
           />
         </div>
         <div className="form-group submit submit-btn mt-0">
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded mt-0">Pay Now</button>
+          <button type="submit" className="bg-yellow-500 text-white px-4 py-2 rounded mt-0">Pay Now</button>
         </div>
       </form>
     </div>
@@ -217,3 +217,151 @@ const PartnershipForm = () => {
 };
 
 export default PartnershipForm;
+
+
+
+
+/*
+
+Responsive code
+
+
+import React, { useState } from 'react';
+import Select from 'react-select';
+import { Country, State } from 'country-state-city';
+import logo from '../assets/Images/TLBC24Logo2.png'; 
+
+const PartnershipForm = () => {
+  // ... (keep your existing state and functions)
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-cover bg-center py-12 px-4 sm:px-6 lg:px-8" style={{ backgroundImage: 'url("/images/wordsession.jpg")' }}>
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+      
+      <div className="relative w-full max-w-md bg-white rounded-lg shadow-xl p-6 sm:p-8 space-y-8">
+        <div>
+          <img src={logo} alt="Logo" className="mx-auto h-16 w-auto" />
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-yellow-500">
+            Partnership Form
+          </h2>
+        </div>
+        
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          <div className="rounded-md shadow-sm -space-y-px">
+            <div>
+              <label htmlFor="name" className="sr-only">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 focus:z-10 sm:text-sm"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="sr-only">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 focus:z-10 sm:text-sm"
+                placeholder="Email address"
+                value={formData.email}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="phone" className="sr-only">Phone Number</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 focus:z-10 sm:text-sm"
+                placeholder="Phone number"
+                value={formData.phone}
+                onChange={handleInputChange}
+              />
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <Select
+              id="country"
+              name="country"
+              options={countries}
+              value={selectedCountry}
+              onChange={handleCountryChange}
+              placeholder="Select your country"
+              isClearable
+              className="react-select-container"
+              classNamePrefix="react-select"
+            />
+            <Select
+              id="state"
+              name="state"
+              options={statesOptions}
+              value={selectedState}
+              onChange={handleStateChange}
+              placeholder="Select your state"
+              isClearable
+              isDisabled={!selectedCountry}
+              className="react-select-container"
+              classNamePrefix="react-select"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="currency" className="sr-only">Currency</label>
+            <select 
+              id="currency" 
+              name="currency"
+              required
+              className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm rounded-md"
+              value={formData.currency}
+              onChange={handleInputChange}
+            >
+              <option value="NGN">Naira</option>
+              <option value="USD">USD</option>
+              <option value="Euro">Euro</option>
+              <option value="GBP">GBP</option>
+              <option value="Yen">Yen</option>
+              <option value="AUD">AUD</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="amount" className="sr-only">Amount</label>
+            <input
+              id="amount"
+              name="amount"
+              type="number"
+              required
+              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 focus:z-10 sm:text-sm"
+              placeholder="Enter amount"
+              value={formData.amount}
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
+            >
+              Pay Now
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default PartnershipForm;
+
+*/

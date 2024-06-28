@@ -6,7 +6,7 @@ import Register from './Pages/Register'; // Create Register.js for register cont
 import Partners from './Pages/Partners'; // Create Partners.js for partners content
 import PayStatus from './Pages/PayStatus';
 import ScrollToTop from './Components/ScrollToTop';
-import './App.css';
+import './index.css';
 // import './assets/Styles/bootstrap.min.css';
 // import './assets/Styles/bootstrap-icons.css'; 
 // import './assets/Styles/templatemo-festava-live.css'

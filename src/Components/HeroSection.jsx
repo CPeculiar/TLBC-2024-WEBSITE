@@ -6,36 +6,36 @@ import React from "react";
 const HeroSection = () => {
   return (
     <section className="hero-section" id="section_1">
-      <div className="section-overlay"></div>
-
-      {/* <div className="container d-flex justify-content-center align-items-center">
-        <div className="row">
-          <div className="col-12 mt-auto mb-5 text-center">
-            <small>The Lord's Brethren Church International Presents</small>
-            <h2 className="text-white mb-1">The Lord's Brethren Convocation '24</h2>
-            <a className="btn custom-btn smoothscroll" href="#section_2">About TLBC'24</a>
-          </div> */}
+      {/* <div className="section-overlay"></div> */}
       <div className="flex justify-center items-center h-screen">
         <div className="text-center row">
           <div className="mt-auto mb-5">
             <small 
-            className="font-bold text-lg block mb-2"
-            style={{color: '#F5F5F5', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)'}}
-             >
+           className="font-extrabold text-xl block mb-2"
+              style={{
+                color: '#FFFFFF', 
+                textShadow: '5px 5px 10px rgba(0, 0, 0, 0.9)',
+                letterSpacing: '1px'
+              }}
+              >
               The Lord's Brethren Church International Presents
             </small>
             <h2
-              className="text-white mb-3 text-6xl"
-              style={{textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)'}}
+               className="text-white mb-3 text-6xl font-black"
+              style={{
+                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+                letterSpacing: '2px',
+                color: 'white'
+              }}
             >
               The Lord's Brethren Convocation '24
             </h2>
-            <a
+            {/* <a
               className="btn custom-btn smoothscroll py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md"
               href="#section_2"
             >
               About TLBC'24
-            </a>
+            </a> */}
           </div>
 
           <div className="col-lg-12 col-12 mt-auto d-flex flex-column flex-lg-row text-center">

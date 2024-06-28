@@ -1,95 +1,155 @@
-// import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
+import '../assets/Styles/Gallery.css';
 
-// import "../assets/Styles/Gallery.css"; 
-// import "../assets/Styles/old-gallery.css"; 
-// import "../assets/Styles/templatemo-festava-live.css";  
+const TlbcGallery = () => {
+  const [previewVisible, setPreviewVisible] = useState(false);
+  const [currentSection, setCurrentSection] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [allImages, setAllImages] = useState([]);
 
+  // Dynamically import all images in the 'images' directory
+  useEffect(() => {
+    const importAllImages = async () => {
+      const images = {};
+      for (let i = 1; i <= 48; i++) {
+        images[`./images/image${i}.jpg`] = () => import(`./images/image${i}.jpg`);
+      }
+      const imagePaths = await Promise.all(
+        Object.keys(images).map(async (key) => {
+          const module = await images[key]();
+          return module.default;
+        })
+      );
+      setAllImages(imagePaths);
+    };
 
-import React from "react";
-import "../assets/Styles/Gallery.css";
+    importAllImages();
+  }, []);
 
-const yearData = [
-  {
-    year: "2023",
-    theme: "Immortality",
-    images: [
-      "images/dance.jpg",
-      "images/worship.jpg",
-      "images/testimonies.jpg",
-      "images/2016Pic1.jpg",
-      "images/2016Pic2.jpg",
-      "images/2016Pic3.jpg",
-      "images/2016Pic4.jpg",
-      "images/2016Pic5.jpg",
-      "images/2016Pic6.jpg",
-    ],
-  },
-  {
-    year: "2022",
-    theme: "Eternity",
-    images: [
-      "images/dance.jpg",
-      "images/worship.jpg",
-      "images/testimonies.jpg",
-      "images/2016Pic1.jpg",
-      "images/2016Pic2.jpg",
-      "images/2016Pic3.jpg",
-      "images/2016Pic4.jpg",
-      "images/2016Pic5.jpg",
-      "images/2016Pic6.jpg",
-    ],
-  },
-  {
-    year: "2021",
-    theme: "Everlasting",
-    images: [
-      "images/dance.jpg",
-      "images/worship.jpg",
-      "images/testimonies.jpg",
-      "images/2016Pic1.jpg",
-      "images/2016Pic2.jpg",
-      "images/2016Pic3.jpg",
-      "images/2016Pic4.jpg",
-      "images/2016Pic5.jpg",
-      "images/2016Pic6.jpg",
-    ],
-  },
-  // Add more years and their images here
-];
+  // Mapping images to their respective sections
+  const sections = [
+    {
+      title: "TLBC 2023",
+      theme: "Immortality",
+      description: "Reverend Elochukwu tookus on the subject IMMORTALITY and we were blessed. Glory to God.",
+      startIndex: 42,
+      endIndex: 48,
+    },
+    {
+      title: "TLBC 2022",
+      theme: "The City of God",
+      description: "Reverend Elochukwu tookus on the subject The City of God and we were blessed. Glory to God..",
+      startIndex: 36,
+      endIndex: 42,
+    },
+    {
+      title: "TLBC 2021",
+      theme: "The Promise",
+      description: "Reverend Elochukwu tookus on the subject The Promise and we were blessed. Glory to God..",
+      startIndex: 30,
+      endIndex: 36,
+    },
+    {
+      title: "TLBC 2020",
+      theme: "The Two Men called the Sons of God",
+      description: "Reverend Elochukwu tookus on the subject The Two Men called the Sons of God and we were blessed. Glory to God.",
+      startIndex: 24,
+      endIndex: 30,
+    },
+    {
+      title: "TLBC 2019",
+      theme: "ACTS",
+      description: "Reverend Elochukwu tookus on the subject ACTS and we were blessed. Glory to God.",
+      startIndex: 18,
+      endIndex: 24,
+    },
+    {
+      title: "TLBC 2018",
+      theme: "The Kingdom, The Power and The Glory",
+      description: "Reverend Elochukwu tookus on the subject The Kingdom, The Power and The Glory and we were blessed. Glory to God.",
+      startIndex: 12,
+      endIndex: 18,
+    },
+    {
+      title: "TLBC 2017",
+      theme: "The Great Commission",
+      description: "Reverend Elochukwu tookus on the subject The Great Commission and we were blessed. Glory to God.",
+      startIndex: 6,
+      endIndex: 12,
+    },
+    {
+      title: "TLBC 2016",
+      theme: "Presenting the Glorious Church",
+      description: "Reverend Elochukwu tookus on the subject Presenting the Glorious Church and we were blessed. Glory to God.",
+      startIndex: 0,
+      endIndex: 6,
+    },
+  ];
 
-function TlbcGallery() {
+  const openPreview = (sectionIndex, imageIndex) => {
+    setCurrentSection(sectionIndex);
+    setCurrentImageIndex(imageIndex);
+    setPreviewVisible(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closePreview = () => {
+    setPreviewVisible(false);
+    document.body.style.overflow = 'scroll';
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex < sections[currentSection].endIndex - sections[currentSection].startIndex - 1
+        ? prevIndex + 1
+        : prevIndex
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : prevIndex
+    );
+  };
+
   return (
-    <div>
-      {yearData.map(({ year, theme, images }, yearIndex) => (
-        <section className="gallery-section" key={yearIndex}>
-          <div className="wrapper">
-            <div className="container all-pictures mt-8">
-              <h3 className="text-black-500 font-bold text-4xl">TLBC'{year}</h3>
-              <h4 className="text-black-500 font-bold text-4xl">
-                Theme: <span className="text-danger">{theme}</span>
-              </h4>
-              <p className="text-dark font-light text-2xl">TLBC 2023 was a great experience for us in TLBC international</p>
-              <div className="gallery">
-                {images.map((src, index) => (
-                  <div className="image" key={index}>
-                    <span>
-                      <img src={src} alt="" />
-                    </span>
-                  </div>
-                ))}
+    <div className="image-gallery">
+      {sections.map((section, sectionIndex) => (
+        <div key={sectionIndex} className="gallery-section">
+          <h3>{section.title}</h3>
+          <h4>Theme: <span className="text-danger">{section.theme}</span></h4>
+          <p>{section.description}</p>
+          <div className="gallery-grid">
+            {allImages.slice(section.startIndex, section.endIndex).map((image, imageIndex) => (
+              <div key={imageIndex} className="gallery-item" onClick={() => openPreview(sectionIndex, imageIndex)}>
+                <img src={image} alt={`${section.title} Image ${imageIndex + 1}`} />
               </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      {previewVisible && (
+        <div className="preview-overlay" onClick={closePreview}>
+          <div className="preview-box" onClick={(e) => e.stopPropagation()}>
+            <div className="preview-content">
+              <img src={allImages[sections[currentSection].startIndex + currentImageIndex]}
+                   alt={`${sections[currentSection].title} Image ${currentImageIndex + 1}`} />
+              <div className="preview-info">
+                <span>Image {currentImageIndex + 1} of {sections[currentSection].endIndex - sections[currentSection].startIndex}</span>
+                <button className="close-btn" onClick={closePreview}>X Close</button>
+              </div>
+              <button className="nav-btn prev" onClick={prevImage} disabled={currentImageIndex === 0}>&#10094;</button>
+              <button className="nav-btn next" onClick={nextImage} disabled={currentImageIndex === sections[currentSection].endIndex - sections[currentSection].startIndex - 1}>&#10095;</button>
             </div>
           </div>
-        </section>
-      ))}
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default TlbcGallery;
-
-
-
 
 
 

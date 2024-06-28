@@ -1,53 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import '../assets/Styles/bootstrap.min.css'; 
-// import '../assets/Styles/bootstrap-icons.css';
-// import '../assets/Styles/templatemo-festava-live.css';
-// import '../assets/Styles/Navbar.css';
+
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className="navbar navbar-expand-lg">
-      <div className="container">
-        <Link to="/" className="navbar-brand">
-          TLBC'24
-        </Link>
-
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        {/* Navbar links */}
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav align-items-lg-center ms-auto me-lg-5">
-            <li className="nav-item">
-              <Link to="/home" className="nav-link click-scroll">Home</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/gallery" className="nav-link click-scroll">Gallery</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/register" className="nav-link click-scroll">Register</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/partners" className="nav-link click-scroll">Partner with us</Link>
-            </li>   
-            <li className="nav-item hidden">
-              <Link to="/paystatus" className="nav-link click-scroll">PayStatus</Link>
-            </li>          
-          </ul>
+    <div>
+      <nav className="bg-yellow-500 shadow-lg">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between py-3">
+            <div className="flex items-center">
+              <button
+                className="md:hidden text-white focus:outline-none mr-4"
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+              </button>
+              <Link to="/" className="text-white text-[13px] font-bold">
+                THE LORD'S <br/> BRETHREN CONVOCATION
+              </Link>
+            </div>
+            <div className="hidden md:flex md:items-center">
+              <NavItems />
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
+        {/* Mobile menu */}
+        <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`}>
+          <NavItems mobile />
+        </div>
+      </nav>
+      
+    </div>
   );
 };
+
+const NavItems = ({ mobile }) => (
+  <ul className={`${mobile ? 'flex flex-col' : 'flex'} w-full`}>
+    <NavItem to="/home" label="Home" mobile={mobile} />
+    <NavItem to="/gallery" label="Gallery" mobile={mobile} />
+    <NavItem to="/register" label="Register" mobile={mobile} />
+    <NavItem to="/partners" label="Partner with us" mobile={mobile} />
+    <NavItem to="/paystatus" label="PayStatus" mobile={mobile} hidden />
+  </ul>
+);
+
+const NavItem = ({ to, label, mobile, hidden }) => (
+  <li className={`nav-item ${hidden ? 'hidden' : ''} ${mobile ? 'border-b border-yellow-400' : ''}`}>
+    <Link 
+      to={to} 
+      className={`block text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-yellow-600 transition duration-300
+                  ${mobile ? 'hover:pl-4' : ''}`}
+    >
+      {label}
+    </Link>
+  </li>
+);
 
 export default Navbar;

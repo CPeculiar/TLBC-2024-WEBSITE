@@ -1,3 +1,4 @@
+
 .registration-container {
     display: flex;
     justify-content: center;
@@ -5,14 +6,14 @@
     padding: 20px;
   }
   
-  .register-form {
+  /* .register-form {
     width: 80%;
     background: #f8f9fa;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
+   */
   form {
     display: flex;
     flex-wrap: wrap;
@@ -40,6 +41,7 @@
 
   .form-group {
     flex: 1 1 45%;
+    margin-bottom: 20px;
   }
   
   .form-group label {
@@ -79,8 +81,100 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
+  button:hover {
+      background-color: #d4af37;
+    }
+  
   
   .submit-btn input:hover {
     background-color: darkred;
   }
 
+  @media (max-width: 768px) {
+    select, input, label {
+      font-size: 16px !important;
+    }
+  }
+
+  select, input {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M10.293 3.293 6 7.586 1.707 3.293A1 1 0 0 0 .293 4.707l5 5a1 1 0 0 0 1.414 0l5-5a1 1 0 1 0-1.414-1.414z' fill='%23333'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+  }
+
+  .register-form {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 768px) {
+    .register-form {
+      padding: 15px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .form-group {
+      margin-bottom: 15px;
+    }
+  }
+
+  button[type="submit"] {
+    padding: 12px 24px;
+    font-size: 18px;
+    min-height: 44px;
+  }
+
+  label {
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .heroSection {
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .heroSection {
+      background-image: url("/images/wordsession-mobile.jpg");
+    }
+  }
+
+  body {
+    line-height: 1.6;
+    color: #333333;
+  }
+  
+  h2 {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+  
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 24px;
+    }
+  }

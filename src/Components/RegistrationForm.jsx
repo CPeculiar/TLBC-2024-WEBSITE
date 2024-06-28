@@ -27,26 +27,7 @@ const RegistrationForm = () => {
   const [campingStatus, setCampingStatus] = useState("");
   const [healthCondition, setHealthCondition] = useState("");
 
-  // const handleInputChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData({ ...formData, [name]: value });
-  // };
-
-  // // const handleMemberChange = (e) => {
-  // //   setMemberStatus(e.target.value);
-  // //   if (e.target.value === 'Member') {
-  // //     setFormData({ ...formData, church_name: '' });
-  // //   }
-  // // };
-
-  // const handleMemberChange = (e) => {
-  //   const { value } = e.target;
-  //   setMemberStatus(value);
-  //   setFormData({ ...formData, category: value });
-  //   if (value === 'Member') {
-  //     setFormData({ ...formData, church_name: '' });
-  //   }
-  // };
+  
 
   const handleInputChange = (e) => {
     setErrors({});
@@ -62,28 +43,12 @@ const RegistrationForm = () => {
     }
   };
 
-  // const handleCampingChange = (e) => {
-  //   const { value } = e.target;
-  //   setCampingStatus(value);
-  //   setFormData({ ...formData, attendance_mode: value });
-  // };
-
-  // const handleHealthConditionChange = (e) => {
-  //   const { value } = e.target;
-  //   setHealthCondition(value);
-  //   setFormData({ ...formData, health_issue: value });
-  // };
-
   const handleCampingChange = (e) => {
     setCampingStatus(e.target.value);
     handleInputChange(e);
   };
 
-  // const handleHealthConditionChange = (e) => {
-  //   setHealthCondition(e.target.value);
-  //   handleInputChange(e);
-  // };
-
+  
   const handleHealthConditionChange = (e) => {
     const { value } = e.target;
     setHealthCondition(value);
@@ -217,16 +182,6 @@ const RegistrationForm = () => {
     }
   };
 
-  // localStorage.setItem('accessToken', responseData.access);
-  // localStorage.setItem('refreshToken', responseData.refresh);
-
-  // e.target.reset();
-  // window.location.href = 'http://127.0.0.1:5500/dashboard/dashboard.html';
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-  // };
-
   const getCookie = (name) => {
     let cookieValue = null;
     if (document.cookie && document.cookie !== "") {
@@ -256,23 +211,16 @@ const RegistrationForm = () => {
     <div>
       <section
         //hero-section
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center heroSection"
         id="section_1"
         style={{ backgroundImage: 'url("/images/wordsession.jpg")' }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
-        {/* Dimming overlay */}
-        {/* <div className="container d-flex justify-content-center align-items-center"> */}
-        {/*<div className="">
-             <div className="col-12 mt-4 mb-5 text-center">
-              <h2 className="text-white mb-1" id="annual">Register Now!!!</h2>
-            </div> 
-          </div>*/}
-        {/* </div> */}
-        {/* <div className="flex justify-center items-center bg-gray-100 registration-container"> */}
+
+
         <div className="relative p-8 rounded-lg shadow-lg w-full max-w-3xl bg-white mx-auto mt-3 mb-3 register-form">
           <div className="text-center mb-6 mainTitle">
-            <h2 className="text-blue-500 font-bold text-4xl">
+            <h2 className="text-yellow-500 font-bold text-4xl">
               {" "}
               Registration Form
             </h2>
@@ -283,7 +231,7 @@ const RegistrationForm = () => {
                 htmlFor="firstname"
                 className="block text-gray-700 font-bold mb-2"
               >
-                Firstname
+                First Name
               </label>
               <input
                 type="text"
@@ -299,7 +247,11 @@ const RegistrationForm = () => {
               </span>
             </div>
             <div className="form-group mb-2 lastname">
-              <label htmlFor="lastname">Lastname</label>
+              <label htmlFor="lastname"
+              className="block text-gray-700 font-bold mb-2"
+              >
+              Last Name
+              </label>
               <input
                 type="text"
                 id="lastname"
@@ -443,7 +395,7 @@ const RegistrationForm = () => {
                   htmlFor="churchZone"
                   className="block text-gray-700 font-bold mb-2"
                 >
-                  Please state your church zone
+                  Please state your church or zone
                 </label>
                 <select
                   type="text"
@@ -695,10 +647,10 @@ const RegistrationForm = () => {
                 {errors.reach}
               </span>
             </div>
-            <div className="form-group submit submit-btn mt-0">
+            <div className="form-group submit submit-btn mt-0 hover:text-yellow-700">
               <button
                 type="submit"
-                className="bg-blue-500 text-white px-4 py-2 rounded"
+                className="bg-yellow-500 text-white px-4 py-2 rounded"
               >
                 Register
               </button>
@@ -711,6 +663,74 @@ const RegistrationForm = () => {
 };
 
 export default RegistrationForm;
+
+
+
+
+
+        
+        {/* Dimming overlay */}
+        {/* <div className="container d-flex justify-content-center align-items-center"> */}
+        {/*<div className="">
+             <div className="col-12 mt-4 mb-5 text-center">
+              <h2 className="text-white mb-1" id="annual">Register Now!!!</h2>
+            </div> 
+          </div>*/}
+        {/* </div> */}
+        {/* <div className="flex justify-center items-center bg-gray-100 registration-container"> */}
+
+        
+
+    // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData({ ...formData, [name]: value });
+  // };
+
+  // // const handleMemberChange = (e) => {
+  // //   setMemberStatus(e.target.value);
+  // //   if (e.target.value === 'Member') {
+  // //     setFormData({ ...formData, church_name: '' });
+  // //   }
+  // // };
+
+  // const handleMemberChange = (e) => {
+  //   const { value } = e.target;
+  //   setMemberStatus(value);
+  //   setFormData({ ...formData, category: value });
+  //   if (value === 'Member') {
+  //     setFormData({ ...formData, church_name: '' });
+  //   }
+  // };
+
+  // const handleCampingChange = (e) => {
+  //   const { value } = e.target;
+  //   setCampingStatus(value);
+  //   setFormData({ ...formData, attendance_mode: value });
+  // };
+
+  // const handleHealthConditionChange = (e) => {
+  //   const { value } = e.target;
+  //   setHealthCondition(value);
+  //   setFormData({ ...formData, health_issue: value });
+  // };
+  
+  // const handleHealthConditionChange = (e) => {
+  //   setHealthCondition(e.target.value);
+  //   handleInputChange(e);
+  // };
+
+  
+  // localStorage.setItem('accessToken', responseData.access);
+  // localStorage.setItem('refreshToken', responseData.refresh);
+
+  // e.target.reset();
+  // window.location.href = 'http://127.0.0.1:5500/dashboard/dashboard.html';
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }
+  // };
+
+
 
 // const RegistrationForm = () => {
 //     return (

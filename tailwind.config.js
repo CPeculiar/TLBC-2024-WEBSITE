@@ -5,9 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        golden: '#FFD700',
+      },
+    },
   },
+  variants: {},
   plugins: [
     require('daisyui'),
+    require('@tailwindcss/aspect-ratio'),
+
   ],
 } 

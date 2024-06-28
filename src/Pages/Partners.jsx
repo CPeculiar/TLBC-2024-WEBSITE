@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 
 import Footer from "../Components/Footer";
 import PartnershipForm from "../Components/PartnershipForm";
+
 // import '../assets/Styles/templatemo-festava-live.css';
 
 
@@ -33,6 +34,7 @@ function Partners() {
       </section> */}
 
       <PartnershipForm />
+      
 
 
 

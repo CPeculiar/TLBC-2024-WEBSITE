@@ -22,7 +22,8 @@ https://templatemo.com/tm-583-festava-live
   --border-color:                 #7fffd4;
   --link-hover-color:             #B22727;
 
-  --body-font-family:             'Outfit', sans-serif;
+  --body-font-family:             'Poppins', sans-serif;
+
 
   --h1-font-size:                 74px;
   --h2-font-size:                 46px;
@@ -48,6 +49,7 @@ body {
   font-family: var(--body-font-family); 
 }
 
+/*--body-font-family:             'Outfit', sans-serif; */
 
 /*---------------------------------------
   TYPOGRAPHY               
@@ -479,7 +481,7 @@ strong {
   overflow: hidden;
   padding-top: 100px;
   height: calc(100vh - 51px);
-  background-image: url(/images/_MG_7551.jpg);
+  background-image: url(../../Components/images/HeroBackground.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

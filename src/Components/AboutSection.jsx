@@ -5,9 +5,9 @@ import ContactSection from "./ContactSection";
 import "../assets/Styles/bootstrap.min.css";
 import "../assets/Styles/bootstrap-icons.css";
 import "../assets/Styles/templatemo-festava-live.css";
-import Theword from './images/Theword.jpg'
-import PraiseSession from './images/PraiseSession.jpg'
-import FamilyExperience from './images/FamilyExperience.jpg'
+import Theword from '../assets/Images/Theword.jpg';
+import PraiseSession from '../assets/Images/PraiseSession.jpg';
+import FamilyExperience from '../assets/Images/FamilyExperience.jpg';
 
 
 const AboutSection = () => {

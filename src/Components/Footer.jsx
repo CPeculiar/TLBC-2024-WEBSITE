@@ -1,9 +1,9 @@
 import React from "react";
 // import "../assets/Styles/bootstrap.min.css";
 import { Link } from 'react-router-dom';
-import Ficon from './images/fbicon.png';
-import Yicon from './images/youtubeicon.png';
-import Ticon from './images/tgicon.png';
+import Ficon from '../assets/Images/fbicon.png';
+import Yicon from '../assets/Images/youtubeicon.png';
+import Ticon from '../assets/Images/tgicon.png';
 
 const Footer = () => {
   return (

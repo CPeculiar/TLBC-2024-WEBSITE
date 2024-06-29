@@ -43,7 +43,7 @@ const NavItems = ({ mobile }) => (
     <NavItem to="/gallery" label="Gallery" mobile={mobile} />
     <NavItem to="/register" label="Register" mobile={mobile} />
     <NavItem to="/partners" label="Partner with us" mobile={mobile} />
-    <NavItem to="/paystatus" label="PayStatus" mobile={mobile} />
+    <NavItem to="/paystatus" label="PayStatus" mobile={mobile} hidden />
   </ul>
 );
 

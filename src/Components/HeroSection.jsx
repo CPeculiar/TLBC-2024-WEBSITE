@@ -1,74 +1,59 @@
 import React from "react";
-// import '../assets/Styles/bootstrap.min.css'
-// import '../assets/Styles/bootstrap-icons.css'
-// import "../assets/Styles/templatemo-festava-live.css";
+import Dateicon from '../assets/Images/dateicon.svg';
+import Locationicon from '../assets/Images/locationicon.svg';
+import Shareicon from '../assets/Images/shareicon.svg';
 
 const HeroSection = () => {
   return (
-    <section className="hero-section" id="section_1">
-      {/* <div className="section-overlay"></div> */}
-      <div className="flex justify-center items-center h-screen">
-        <div className="text-center row">
-          <div className="mt-auto mb-5">
-            <small 
-           className="font-extrabold text-xl block mb-2"
-              style={{
-                color: '#FFFFFF', 
-                textShadow: '5px 5px 10px rgba(0, 0, 0, 0.9)',
-                letterSpacing: '1px'
-              }}
-              >
-              The Lord's Brethren Church International Presents
-            </small>
-            <h2
-               className="text-white mb-3 text-6xl font-black"
-              style={{
-                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
-                letterSpacing: '2px',
-                color: 'white'
-              }}
-            >
-              The Lord's Brethren Convocation '24
-            </h2>
-            {/* <a
-              className="btn custom-btn smoothscroll py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md"
-              href="#section_2"
-            >
-              About TLBC'24
-            </a> */}
-          </div>
+    <section className="hero-section relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8" id="section_1">
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="relative z-10 text-center max-w-4xl mx-auto">
+        <div className="mb-8 sm:mb-12">
+          <small 
+            className="font-extrabold text-lg sm:text-xl block mb-4"
+            style={{
+              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.9)',
+              letterSpacing: '1px'
+            }}
+          >
+            The Lord&apos;s Brethren Church International Presents
+          </small>
+          <h2
+            className="text-yellow mb-3 text-4xl sm:text-5xl lg:text-6xl font-black"
+            style={{
+              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+              letterSpacing: '2px',
+              color: 'yellow'
+            }}
+          >
+            The Lord&apos;s Brethren Convocation 2024
+          </h2>
+        </div>
 
-          <div className="col-lg-12 col-12 mt-auto d-flex flex-column flex-lg-row text-center">
-            <div className="date-wrap">
-              <h5 className="text-white">
-                <i className="custom-icon bi-clock me-2"></i>
-                31st Aug - 4th Sept<sup></sup>, 2024
-              </h5>
-            </div>
-            <div className="location-wrap mx-auto py-3 py-lg-0">
-              <h5 className="text-white">
-                <i className="custom-icon bi-geo-alt me-2"></i>
-                To be announced soon
-              </h5>
-            </div>
-            <div className="social-share">
-              <ul className="social-icon d-flex align-items-center justify-content-center">
-                <span className="text-white me-3">Share:</span>
-                <li className="social-icon-item">
-                  <a
-                    href="https://web.facebook.com/thelordsbrethrenchurchintl"
-                    className="social-icon-link"
-                  >
-                    <span className="bi-facebook"></span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mt-8 sm:mt-12">
+          <div className="flex items-center">
+            <img src={Dateicon} alt="Date" className="bg-white h-6 w-6 rounded-full mr-2" />
+            <h5 className="text-white text-lg sm:text-xl">
+              31st Aug - 4th Sept, 2024
+            </h5>
+          </div> 
+          <div className="flex items-center">
+            <img src={Locationicon} alt="Location" className="bg-white h-6 w-6 rounded-full mr-2" />
+            <h5 className="text-white text-lg sm:text-xl">
+              Kingdom City Prayer Camp, Awka, Anambra State, Nigeria.
+            </h5>
+          </div>
+          <div className="flex items-center">
+            <span className="text-white mr-3 text-lg sm:text-xl">Share:</span>
+            <a
+              href="https://web.facebook.com/thelordsbrethrenchurchintl"
+              className="flex items-center"
+            >
+              <img src={Shareicon} alt="Share" className="bg-white h-6 w-6 rounded-full" />
+            </a>
           </div>
         </div>
       </div>
-
-      <div className="video-wrap"></div>
     </section>
   );
 };

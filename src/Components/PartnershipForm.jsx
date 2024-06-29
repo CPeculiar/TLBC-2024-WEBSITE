@@ -31,7 +31,6 @@ const PartnershipForm = () => {
     setSelectedState(state);
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     // if (!validateForm(formData)) {
@@ -44,7 +43,7 @@ const PartnershipForm = () => {
     }
     if (selectedCountry) {
       data.append('country', selectedCountry.label);
-    }
+    } 
     if (selectedState) {
       data.append('state', selectedState.label);
     }

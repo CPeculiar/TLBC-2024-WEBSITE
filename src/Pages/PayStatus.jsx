@@ -1,69 +1,119 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import successIcon from '../assets/Images/success3.svg';
-import failedIcon from '../assets/Images/fail.png'; 
-import logo from '../assets/Images/TLBC24Logo2.png'; 
-
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import successIcon from "../assets/Images/success3.svg";
+import cancelledIcon from "../assets/Images/cancel.png";
+import logo from "../assets/Images/TLBC24Logo2.png";
 
 const PayStatus = () => {
-
   const location = useLocation();
-  const [status, setStatus] = useState('');
-  const [txRef, setTxRef] = useState('');
-  const [transactionId, setTransactionId] = useState('');
-  
+  const [status, setStatus] = useState("");
+  const [txRef, setTxRef] = useState("");
+  const [referenceId, setReferenceId] = useState("");
+
   useEffect(() => {
     const query = new URLSearchParams(location.search);
-    setStatus(query.get('status'));
-    setTxRef(query.get('tx_ref'));
-    setTransactionId(query.get('transaction_id'));
+    setStatus(query.get("status"));
+    setTxRef(query.get("tx_ref"));
+    setReferenceId(query.get("reference"));
   }, [location.search]);
 
   const handleClose = () => {
-    window.location.href = '/home';
+    window.location.href = "/home";
   };
-  
-  
 
-    return (
+  return (
     <div>
-        <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-      <img src={logo} alt="Logo" className="w-20 h-20 mx-auto mb-6" />
-        {status === 'successful' ? (
-          <>
-          <div className="flex justify-center mb-4">
-            <img src={successIcon} alt="Success" className="w-20 h-20 filter-green" />
-            </div>
-            <h2 className="text-2xl font-bold text-green-600">Payment Successful</h2>
-            <div className="mt-4 text-left">
-            <p><strong>Transaction Reference:</strong> {txRef}</p>
-              <p><strong>Transaction ID:</strong> {transactionId}</p>
-            </div>
-          </>
-        ) : (
-          <>
-          <div className="flex justify-center mb-4">
-            <img src={failedIcon} alt="Failed" className="w-18 h-20 filter-red" />
-            </div>
-            <h2 className={`text-2xl font-bold ${status === 'failed' ? 'text-red-600' : 'text-yellow-600'}`}>
-            </h2>
-            {status === 'failed' && <p className="mt-4 text-red-600">Your payment could not be processed. Please try again.</p>}
-          </>
-        )}
-        <button
-          onClick={handleClose}
-          className="mt-6 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-        >
-          Close
-        </button>
+      <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100">
+        <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+          <img src={logo} alt="Logo" className="w-20 h-20 mx-auto mb-6" />
+          {status === "successful" ? (
+            <>
+              <div className="flex justify-center mb-4">
+                <img
+                  src={successIcon}
+                  alt="Success"
+                  className="w-20 h-20 filter-green"
+                />
+              </div>
+              <h2 className="text-2xl font-bold text-green-600">
+                Payment Successful
+              </h2>
+              <p>
+                {" "}
+                Thank you for registering for TLBC 2024. <br />
+                Blessings!
+              </p>
+              <div className="mt-4 text-left">
+                <p>
+                  <strong className="font-semibold">
+                    Transaction Reference:
+                  </strong>{" "}
+                  {txRef}
+                </p>
+                <p>
+                  <strong className="font-semibold">Reference ID:</strong>{" "}
+                  {referenceId}
+                </p>
+              </div>
+              <button
+            onClick={handleClose}
+            className="mt-6 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+          >
+            Close
+          </button>
+            </>
+          ) : (
+            <>
+              <div className="flex justify-center mb-4">
+                <img
+                  src={cancelledIcon}
+                  alt="cancelled"
+                  className="w-30 h-20 filter-red"
+                />
+              </div>
+              <h2
+                className={`text-2xl font-bold mb-2 ${
+                  status === "cancelled" ? "text-red-600" : "text-red-600"
+                }`}
+              >
+                Sorry, your Payment failed!
+              </h2>
+              <p>
+                {" "}
+                Your payment could not be processed. <br />
+                Please try again or contact <br />
+                us on +2349134445037.
+              </p>
+              {status === "cancelled" && (
+                <p className="mt-3 text-center">
+                <strong className="font-semibold">
+                    Transaction Reference:
+                  </strong>{" "}
+                  {txRef}
+                </p>
+              )}
+              <button
+            onClick={handleClose}
+            className="mt-6 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+          >
+            Close
+          </button>
+            </>
+          )}
+          {/* <button
+            onClick={handleClose}
+            className="mt-6 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+          >
+            Close
+          </button> */}
+        </div>
       </div>
-      </div>
-      </div>
+    </div>
   );
-}
+};
 
-export default PayStatus
+export default PayStatus;
+
 
 
 

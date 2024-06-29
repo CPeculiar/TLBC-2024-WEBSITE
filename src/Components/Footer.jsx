@@ -37,14 +37,14 @@ const Footer = () => {
                       <img src={Yicon} alt="YouTube" className="h-10 w-10" />
                     </a>
                   </li>
-                  <li className="social-icon-item">
+                  <li className="social-icon-item mt-">
                     <a
                       href="https://t.me/TheLordsbrethrenchurchintl"
                       className="social-icon-link"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img src={Ticon} alt="Telegram" className="h-8 w-8" />
+                      <img src={Ticon} alt="Telegram" className="h-9 w-9 mt-2" />
                     </a>
                   </li>
                 </ul>
@@ -99,7 +99,7 @@ const Footer = () => {
             <div className="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
               <h5 className="site-footer-title mb-3">Location</h5>
               <p className="text-white d-flex mt-3 mb-2">
-                To be announced soon
+              Kingdom City Prayer Camp, Awka, Anambra State, Nigeria.
               </p>
             </div>
           </div>

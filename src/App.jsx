@@ -5,6 +5,7 @@ import Gallery from './Pages/Gallery'; // Create Gallery.js for gallery content
 import Register from './Pages/Register'; // Create Register.js for register content
 import Partners from './Pages/Partners'; // Create Partners.js for partners content
 import PayStatus from './Pages/PayStatus';
+import Redirect from './Pages/Redirect';
 import ScrollToTop from './Components/ScrollToTop';
 import './index.css';
 // import './assets/Styles/bootstrap.min.css';
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/paystatus" element={<PayStatus />} />
+          <Route path="/redirect" element={<Redirect />} />
 
 
       </Routes>

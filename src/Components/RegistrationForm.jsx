@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // import '../assets/Styles/old-register.css'
 import "../assets/Styles/register.css";
 // import '../assets/Images/wordsession.jpg'
 
 const RegistrationForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -27,8 +29,6 @@ const RegistrationForm = () => {
   const [campingStatus, setCampingStatus] = useState("");
   const [healthCondition, setHealthCondition] = useState("");
 
-  
-
   const handleInputChange = (e) => {
     setErrors({});
     const { name, value } = e.target;
@@ -48,7 +48,6 @@ const RegistrationForm = () => {
     handleInputChange(e);
   };
 
-  
   const handleHealthConditionChange = (e) => {
     const { value } = e.target;
     setHealthCondition(value);
@@ -135,6 +134,11 @@ const RegistrationForm = () => {
       isValid = false;
     }
 
+    if (!data.reach) {
+      newErrors.reach = "This field is required";
+      isValid = false;
+    }
+
     setErrors(newErrors);
     return isValid;
   };
@@ -166,21 +170,38 @@ const RegistrationForm = () => {
         throw new Error("Registration failed");
       }
 
-      const responseData = await response.json();
-      console.log("Registration successful:", responseData);
-      console.log("Registration successful:", responseData.status);
-      console.log("Registration successful:", responseData.link);
-
-      if (responseData.status === "success" && responseData.link) {
-        // Redirect to the link obtained from the response
-        window.location.href = responseData.link;
+      if (response.ok) {
+        const data = await response.json();
+        navigate('/redirect', { 
+          state: { 
+            paymentLink: data.link,
+            userCategory: formData.category, // assuming you have this in your form data
+            referenceId: data.reference
+          } 
+        });
       } else {
-        throw new Error("Invalid response data");
+        throw new Error("Invalid response data"); // Handle error
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:", error);  // Handle error
     }
   };
+
+      // const responseData = await response.json();
+      // console.log("Registration successful:", responseData);
+      // console.log("Registration successful:", responseData.status);
+      // console.log("Registration successful:", responseData.link);
+
+    //   if (responseData.status === "success" && responseData.link) {
+    //     // Redirect to the link obtained from the response
+    //     window.location.href = responseData.link;
+    //   } else {
+    //     throw new Error("Invalid response data");
+    //   }
+    // } catch (error) {
+    //   console.error("Error:", error);
+    // }
+  // };
 
   const getCookie = (name) => {
     let cookieValue = null;
@@ -216,9 +237,7 @@ const RegistrationForm = () => {
         style={{ backgroundImage: 'url("/images/wordsession.jpg")' }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
-
-
-        <div className="relative p-8 rounded-lg shadow-lg w-full max-w-3xl bg-white mx-auto mt-3 mb-3 register-form">
+        <div className="relative p-8 rounded-lg shadow-lg w-full max-w-xl bg-white mx-auto mt-3 mb-3 register-form">
           <div className="text-center mb-6 mainTitle">
             <h2 className="text-yellow-500 font-bold text-4xl">
               {" "}
@@ -240,17 +259,18 @@ const RegistrationForm = () => {
                 placeholder="Enter your firstname"
                 value={formData.firstname}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
               />
               <span className="error text-red-500 text-sm">
                 {errors.firstname}
               </span>
             </div>
             <div className="form-group mb-2 lastname">
-              <label htmlFor="lastname"
-              className="block text-gray-700 font-bold mb-2"
+              <label
+                htmlFor="lastname"
+                className="block text-gray-700 font-bold mb-2"
               >
-              Last Name
+                Last Name
               </label>
               <input
                 type="text"
@@ -259,6 +279,7 @@ const RegistrationForm = () => {
                 placeholder="Enter your lastname"
                 value={formData.lastname}
                 onChange={handleInputChange}
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
               />
               <span className="error">{errors.lastname}</span>
             </div>
@@ -274,7 +295,7 @@ const RegistrationForm = () => {
                 name="gender"
                 value={formData.gender}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
               >
                 <option value="" disabled>
                   Select your gender
@@ -300,7 +321,7 @@ const RegistrationForm = () => {
                 placeholder="Enter your email address"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
               />
               <span className="error text-red-500 text-sm">{errors.email}</span>
             </div>
@@ -318,7 +339,7 @@ const RegistrationForm = () => {
                 placeholder="Select your date"
                 value={formData.birthdate}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
               />
               <span className="error text-red-500 text-sm">
                 {errors.birthdate}
@@ -338,7 +359,7 @@ const RegistrationForm = () => {
                 placeholder="Enter your phone number"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
               />
               <span className="error text-red-500 text-sm">{errors.phone}</span>
             </div>
@@ -356,7 +377,7 @@ const RegistrationForm = () => {
                 placeholder="Enter your address"
                 value={formData.address}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
               />
               <span className="error text-red-500 text-sm">
                 {errors.address}
@@ -377,7 +398,7 @@ const RegistrationForm = () => {
                   handleInputChange(e);
                   // handleMemberChange(e);
                 }}
-                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
               >
                 <option value="" disabled>
                   Select your membership status
@@ -404,7 +425,7 @@ const RegistrationForm = () => {
                   placeholder="Select your Zone"
                   value={formData.church_name}
                   onChange={handleInputChange}
-                  className="mt-1 p-2 border border-gray-300 rounded w-full"
+                  className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
                 >
                   <option value="" disabled>
                     Select your zone
@@ -439,7 +460,7 @@ const RegistrationForm = () => {
                   placeholder="Enter the name of your Ministry"
                   value={formData.church_name}
                   onChange={handleInputChange}
-                  className="mt-1 p-2 border border-gray-300 rounded w-full"
+                  className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
                 />
                 <span
                   className="error text-red-500 text-sm"
@@ -461,7 +482,7 @@ const RegistrationForm = () => {
                 name="is_aware_of_convention"
                 value={formData.is_aware_of_convention}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
               >
                 <option value="" disabled>
                   Select
@@ -491,7 +512,7 @@ const RegistrationForm = () => {
                   handleInputChange(e);
                   handleCampingChange(e);
                 }}
-                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
               >
                 <option value="" disabled>
                   Choose option
@@ -522,7 +543,7 @@ const RegistrationForm = () => {
                   name="attendance_mode"
                   value={formData.attendance_mode}
                   onChange={handleInputChange}
-                  className="mt-1 p-2 border border-gray-300 rounded w-full"
+                  className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
                 >
                   <option value="" disabled>
                     Choose an option
@@ -550,7 +571,7 @@ const RegistrationForm = () => {
                 name="was_participant"
                 value={formData.was_participant}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
               >
                 <option value="" disabled>
                   Choose an option
@@ -576,8 +597,12 @@ const RegistrationForm = () => {
                 id="anyHealthCondition"
                 name="health_issue"
                 value={healthCondition}
-                onChange={handleHealthConditionChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                // onChange={handleHealthConditionChange}
+                onChange={(e) => {
+                  handleInputChange(e);
+                  handleHealthConditionChange(e);
+                }}
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
               >
                 <option value="" disabled>
                   Choose an option
@@ -605,9 +630,9 @@ const RegistrationForm = () => {
                   id="yourHealthCondition"
                   name="health_issue"
                   placeholder="State your health condition(s)"
-                  value={formData.health_issue} // Use formData.health_issue for the text input
+                  value={formData.health_issue}
                   onChange={handleInputChange}
-                  className="mt-1 p-2 border border-gray-300 rounded w-full"
+                  className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
                 />
                 <span
                   className="error text-red-500 text-sm"
@@ -630,7 +655,7 @@ const RegistrationForm = () => {
                 name="reach"
                 value={formData.reach}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
               >
                 <option value="" disabled>
                   Choose an option
@@ -650,7 +675,7 @@ const RegistrationForm = () => {
             <div className="form-group submit submit-btn mt-0 hover:text-yellow-700">
               <button
                 type="submit"
-                className="bg-yellow-500 text-white px-4 py-2 rounded"
+                className="bg-yellow-500 text-white px-4 py-2 rounded w-full sm:w-auto"
               >
                 Register
               </button>
@@ -668,69 +693,78 @@ export default RegistrationForm;
 
 
 
-        
-        {/* Dimming overlay */}
-        {/* <div className="container d-flex justify-content-center align-items-center"> */}
-        {/*<div className="">
+
+
+
+
+
+{
+  /* Dimming overlay */
+}
+{
+  /* <div className="container d-flex justify-content-center align-items-center"> */
+}
+{
+  /*<div className="">
              <div className="col-12 mt-4 mb-5 text-center">
               <h2 className="text-white mb-1" id="annual">Register Now!!!</h2>
             </div> 
-          </div>*/}
-        {/* </div> */}
-        {/* <div className="flex justify-center items-center bg-gray-100 registration-container"> */}
+          </div>*/
+}
+{
+  /* </div> */
+}
+{
+  /* <div className="flex justify-center items-center bg-gray-100 registration-container"> */
+}
 
-        
+// const handleInputChange = (e) => {
+//   const { name, value } = e.target;
+//   setFormData({ ...formData, [name]: value });
+// };
 
-    // const handleInputChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData({ ...formData, [name]: value });
-  // };
+// // const handleMemberChange = (e) => {
+// //   setMemberStatus(e.target.value);
+// //   if (e.target.value === 'Member') {
+// //     setFormData({ ...formData, church_name: '' });
+// //   }
+// // };
 
-  // // const handleMemberChange = (e) => {
-  // //   setMemberStatus(e.target.value);
-  // //   if (e.target.value === 'Member') {
-  // //     setFormData({ ...formData, church_name: '' });
-  // //   }
-  // // };
+// const handleMemberChange = (e) => {
+//   const { value } = e.target;
+//   setMemberStatus(value);
+//   setFormData({ ...formData, category: value });
+//   if (value === 'Member') {
+//     setFormData({ ...formData, church_name: '' });
+//   }
+// };
 
-  // const handleMemberChange = (e) => {
-  //   const { value } = e.target;
-  //   setMemberStatus(value);
-  //   setFormData({ ...formData, category: value });
-  //   if (value === 'Member') {
-  //     setFormData({ ...formData, church_name: '' });
-  //   }
-  // };
+// const handleCampingChange = (e) => {
+//   const { value } = e.target;
+//   setCampingStatus(value);
+//   setFormData({ ...formData, attendance_mode: value });
+// };
 
-  // const handleCampingChange = (e) => {
-  //   const { value } = e.target;
-  //   setCampingStatus(value);
-  //   setFormData({ ...formData, attendance_mode: value });
-  // };
+// const handleHealthConditionChange = (e) => {
+//   const { value } = e.target;
+//   setHealthCondition(value);
+//   setFormData({ ...formData, health_issue: value });
+// };
 
-  // const handleHealthConditionChange = (e) => {
-  //   const { value } = e.target;
-  //   setHealthCondition(value);
-  //   setFormData({ ...formData, health_issue: value });
-  // };
-  
-  // const handleHealthConditionChange = (e) => {
-  //   setHealthCondition(e.target.value);
-  //   handleInputChange(e);
-  // };
+// const handleHealthConditionChange = (e) => {
+//   setHealthCondition(e.target.value);
+//   handleInputChange(e);
+// };
 
-  
-  // localStorage.setItem('accessToken', responseData.access);
-  // localStorage.setItem('refreshToken', responseData.refresh);
+// localStorage.setItem('accessToken', responseData.access);
+// localStorage.setItem('refreshToken', responseData.refresh);
 
-  // e.target.reset();
-  // window.location.href = 'http://127.0.0.1:5500/dashboard/dashboard.html';
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-  // };
-
-
+// e.target.reset();
+// window.location.href = 'http://127.0.0.1:5500/dashboard/dashboard.html';
+//   } catch (error) {
+//     console.error('Error:', error);
+//   }
+// };
 
 // const RegistrationForm = () => {
 //     return (

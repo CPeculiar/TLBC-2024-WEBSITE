@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/Styles/Gallery.css';
 
+
 const TlbcGallery = () => {
   const [previewVisible, setPreviewVisible] = useState(false);
   const [currentSection, setCurrentSection] = useState(0);
@@ -12,7 +13,7 @@ const TlbcGallery = () => {
     const importAllImages = async () => {
       const images = {};
       for (let i = 1; i <= 48; i++) {
-        images[`./images/image${i}.jpg`] = () => import(`./images/image${i}.jpg`);
+        images[`..//assets/Images/image${i}.jpg`] = () => import(`..//assets/Images//image${i}.jpg`);
       }
       const imagePaths = await Promise.all(
         Object.keys(images).map(async (key) => {
@@ -139,8 +140,8 @@ const TlbcGallery = () => {
                 <span>Image {currentImageIndex + 1} of {sections[currentSection].endIndex - sections[currentSection].startIndex}</span>
                 <button className="close-btn" onClick={closePreview}>X Close</button>
               </div>
-              <button className="nav-btn prev" onClick={prevImage} disabled={currentImageIndex === 0}>&#10094;</button>
-              <button className="nav-btn next" onClick={nextImage} disabled={currentImageIndex === sections[currentSection].endIndex - sections[currentSection].startIndex - 1}>&#10095;</button>
+              <button className="nav-btn prev" onClick={prevImage} disabled={currentImageIndex === 0}>&lt;</button>
+              <button className="nav-btn next" onClick={nextImage} disabled={currentImageIndex === sections[currentSection].endIndex - sections[currentSection].startIndex - 1}>&gt;</button>
             </div>
           </div>
         </div>

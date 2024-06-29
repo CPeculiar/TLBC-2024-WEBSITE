@@ -481,7 +481,7 @@ strong {
   overflow: hidden;
   padding-top: 100px;
   height: calc(100vh - 51px);
-  background-image: url(../../Components/images/HeroBackground.jpg);
+  background-image: url(../../assets/Images/HeroBackground.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -44,11 +44,11 @@ const Redirect = () => {
       <div className="text-center space-y-4">
         <p className="text-sm sm:text-base">
           Your reference ID is <span className="font-bold text-blue-600">{referenceId}</span>. <br /> 
-          Please save this ID as it will be used to authenticate your payment at the Registration point in the Convocation.
+          This will be used to authenticate your payment at the Registration point in the Convocation.
         </p>
         <p className="text-sm sm:text-base">
-          You will be redirected to the payment page where you are expected to pay the sum of <span className="font-bold">₦{amount}</span> for 
-          your registration for TLBC 2024.
+          You will be redirected to the payment page where you are expected to pay the sum of <span className="font-bold">₦{amount}</span> to
+           register for TLBC 2024.
         </p>
         <p className="text-sm sm:text-base">
           Please do not refresh or close this page. You will be redirected in <span className="font-bold">{countdown}</span> seconds.

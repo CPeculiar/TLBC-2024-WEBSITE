@@ -76,13 +76,12 @@ const PayStatus = () => {
                   status === "cancelled" ? "text-red-600" : "text-red-600"
                 }`}
               >
-                Sorry, your Payment failed!
+                Payment cancelled!
               </h2>
               <p>
                 {" "}
-                Your payment could not be processed. <br />
                 Please try again or contact <br />
-                us on +2349134445037.
+                us on +2349134445037 if you are experiencing any problem.
               </p>
               {status === "cancelled" && (
                 <p className="mt-3 text-center">

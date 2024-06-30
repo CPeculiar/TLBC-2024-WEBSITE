@@ -1,6 +1,6 @@
 import React from "react";
-import Dateicon from '../assets/Images/dateicon.svg';
-import Locationicon from '../assets/Images/locationicon.svg';
+import Dateicon from '../assets/Images/calendar1.svg';
+import Locationicon from '../assets/Images/location2.svg';
 // import Shareicon from '../assets/Images/shareicon.svg';
 
 const HeroSection = () => {
@@ -32,18 +32,18 @@ const HeroSection = () => {
 
         <div className="flex flex-col space-y-4 mt-6 sm:mt-8 lg:mt-12">
           <div className="flex items-center justify-center">
-            <div className="bg-white p-1 sm:p-2 rounded-full mr-2 sm:mr-4">
-              <img src={Dateicon} alt="Date" className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+            <div className="p-1 sm:p-2 rounded-full mr-2 sm:mr-4">
+              <img src={Dateicon} alt="Date" className="bg-white h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
             </div>
-            <h5 className="text-white text-sm sm:text-base lg:text-lg xl:text-xl">
-              31st Aug - 4th Sept, 2024
+            <h5 className="text-white font-semibold text-sm sm:text-base lg:text-lg xl:text-xl">
+              31st August - 4th September, 2024.
             </h5>
           </div> 
           <div className="flex items-center justify-center">
-            <div className="bg-white p-1 sm:p-2 rounded-full mr-2 sm:mr-4">
-              <img src={Locationicon} alt="Location" className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+            <div className="p-1 sm:p-2 rounded-full mr-1 sm:mr-1">
+              <img src={Locationicon} alt="Location" className="bg-white h-4 w-4 sm:h-5 sm:w-5 lg:mr-[9px] lg:h-6 lg:w-6" />
             </div>
-            <h5 className="text-white text-sm sm:text-base lg:text-lg xl:text-xl">
+            <h5 className="text-white text-sm font-semibold sm:text-base lg:text-lg xl:text-xl">
               Kingdom City Prayer Camp, Awka, Anambra State, Nigeria.
             </h5>
           </div>

@@ -68,6 +68,11 @@
     margin-top: 20px;
   }
   
+#termsCheckbox {
+  margin-right: 30px;
+  color: #d4af37;
+  background-color: #d4af37;
+}
   .submit-btn {
     flex-basis: 100%;
     text-align: center;

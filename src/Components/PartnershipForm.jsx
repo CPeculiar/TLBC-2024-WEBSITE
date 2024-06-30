@@ -60,7 +60,7 @@ const PartnershipForm = () => {
             "X-CSRFTOKEN": getCookie("csrftoken"),
           },
           body: JSON.stringify(formData),
-          credentials: 'include'
+          // credentials: 'include'
 
           // body: data,
         }
@@ -103,7 +103,7 @@ const PartnershipForm = () => {
     }
     return cookieValue;
   };
-  
+
   const countries = Country.getAllCountries().map((country) => ({
     value: country.isoCode,
     label: country.name,

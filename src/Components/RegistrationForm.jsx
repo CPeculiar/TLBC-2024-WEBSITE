@@ -142,7 +142,7 @@ const RegistrationForm = () => {
     setErrors(newErrors);
     return isValid;
   };
-  // setErrors({});
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm(formData)) {
@@ -188,22 +188,6 @@ const RegistrationForm = () => {
       console.error("Error:", error);  // Handle error
     }
   };
-
-      // const responseData = await response.json();
-      // console.log("Registration successful:", responseData);
-      // console.log("Registration successful:", responseData.status);
-      // console.log("Registration successful:", responseData.link);
-
-    //   if (responseData.status === "success" && responseData.link) {
-    //     // Redirect to the link obtained from the response
-    //     window.location.href = responseData.link;
-    //   } else {
-    //     throw new Error("Invalid response data");
-    //   }
-    // } catch (error) {
-    //   console.error("Error:", error);
-    // }
-  // };
 
   const getCookie = (name) => {
     let cookieValue = null;

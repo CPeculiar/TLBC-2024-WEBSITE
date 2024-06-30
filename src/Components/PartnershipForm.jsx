@@ -8,6 +8,7 @@ const PartnershipForm = () => {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedState, setSelectedState] = useState(null);
   const [states, setStates] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,6 +34,7 @@ const PartnershipForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     // if (!validateForm(formData)) {
 
     //   return;
@@ -58,6 +60,8 @@ const PartnershipForm = () => {
             "X-CSRFTOKEN": getCookie("csrftoken"),
           },
           body: JSON.stringify(formData),
+          credentials: 'include'
+
           // body: data,
         }
       );
@@ -78,7 +82,10 @@ const PartnershipForm = () => {
         throw new Error("Invalid response data");
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error details:", error);
+      alert("An error occurred: " + error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -256,8 +263,9 @@ const PartnershipForm = () => {
               <button
                 type="submit"
                 className="bg-yellow-500 text-white px-4 py-2 rounded mt-0 w-full"
+                disabled={isLoading}
               >
-                Pay Now
+                {isLoading ? 'Processing...' : 'Pay Now'}
               </button>
             </div>
           </form>
@@ -268,6 +276,15 @@ const PartnershipForm = () => {
 };
 
 export default PartnershipForm;
+
+
+
+
+
+
+
+
+
 
 /*
 

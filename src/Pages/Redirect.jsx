@@ -36,27 +36,36 @@ const Redirect = () => {
   };
 
   return (
-    <div className="redirect-container">
-      <div className="processing-icon"></div>
-      <p className="redirect-text">
-        Your refernce ID is <span>{referenceId}.</span> <br /> Please you are expected to save this ref ID because 
-        it will be used to authenticate your payment at the Registration point in the Convocation.
-      </p>
-      <p className="redirect-text">
-        You will be redirected to the payment page where you are expected to pay the sum of <span>₦{ amount }</span> for 
-        your registration for TLBC 2024.
-      </p>
-      <p className="redirect-text">
-        Please do not refresh or close this page. You will be redirected in {countdown} seconds.
-      </p>
-      <p className="redirect-text">
-        If you are not automatically redirected, please{' '}
-        <span className="redirect-link" onClick={handleManualRedirect}>
-          click here
-        </span>
-      </p>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 sm:px-6 lg:px-8">
+    <div className="max-w-md w-full space-y-8 bg-white p-6 sm:p-8 rounded-lg shadow-md">
+      <div className="flex justify-center">
+        <div className="processing-icon w-16 h-16 sm:w-20 sm:h-20"></div>
+      </div>
+      <div className="text-center space-y-4">
+        <p className="text-sm sm:text-base">
+          Your reference ID is <span className="font-bold text-blue-600">{referenceId}</span>. <br /> 
+          Please save this ID as it will be used to authenticate your payment at the Registration point in the Convocation.
+        </p>
+        <p className="text-sm sm:text-base">
+          You will be redirected to the payment page where you are expected to pay the sum of <span className="font-bold">₦{amount}</span> for 
+          your registration for TLBC 2024.
+        </p>
+        <p className="text-sm sm:text-base">
+          Please do not refresh or close this page. You will be redirected in <span className="font-bold">{countdown}</span> seconds.
+        </p>
+        <p className="text-sm sm:text-base">
+          If you are not automatically redirected, please{' '}
+          <span 
+            className="text-blue-600 cursor-pointer hover:underline" 
+            onClick={handleManualRedirect}
+          >
+            click here
+          </span>
+        </p>
+      </div>
     </div>
-  );
+  </div>
+);
 };
 
 export default Redirect;

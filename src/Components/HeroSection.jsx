@@ -1,7 +1,7 @@
 import React from "react";
 import Dateicon from '../assets/Images/dateicon.svg';
 import Locationicon from '../assets/Images/locationicon.svg';
-import Shareicon from '../assets/Images/shareicon.svg';
+// import Shareicon from '../assets/Images/shareicon.svg';
 
 const HeroSection = () => {
   return (
@@ -30,27 +30,22 @@ const HeroSection = () => {
           </h2>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mt-8 sm:mt-12">
-          <div className="flex items-center">
-            <img src={Dateicon} alt="Date" className="bg-white h-6 w-6 rounded-full mr-2" />
-            <h5 className="text-white text-lg sm:text-xl">
+        <div className="flex flex-col space-y-4 mt-6 sm:mt-8 lg:mt-12">
+          <div className="flex items-center justify-center">
+            <div className="bg-white p-1 sm:p-2 rounded-full mr-2 sm:mr-4">
+              <img src={Dateicon} alt="Date" className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+            </div>
+            <h5 className="text-white text-sm sm:text-base lg:text-lg xl:text-xl">
               31st Aug - 4th Sept, 2024
             </h5>
           </div> 
-          <div className="flex items-center">
-            <img src={Locationicon} alt="Location" className="bg-white h-6 w-6 rounded-full mr-2" />
-            <h5 className="text-white text-lg sm:text-xl">
+          <div className="flex items-center justify-center">
+            <div className="bg-white p-1 sm:p-2 rounded-full mr-2 sm:mr-4">
+              <img src={Locationicon} alt="Location" className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+            </div>
+            <h5 className="text-white text-sm sm:text-base lg:text-lg xl:text-xl">
               Kingdom City Prayer Camp, Awka, Anambra State, Nigeria.
             </h5>
-          </div>
-          <div className="flex items-center">
-            <span className="text-white mr-3 text-lg sm:text-xl">Share:</span>
-            <a
-              href="https://web.facebook.com/thelordsbrethrenchurchintl"
-              className="flex items-center"
-            >
-              <img src={Shareicon} alt="Share" className="bg-white h-6 w-6 rounded-full" />
-            </a>
           </div>
         </div>
       </div>

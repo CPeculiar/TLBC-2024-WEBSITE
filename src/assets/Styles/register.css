@@ -110,8 +110,40 @@
       font-size: 1.75rem;
     }
   }
+  @media (max-width: 768px) {
+    .register-form {
+      padding: 15px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .heroSection {
+      background-image: url("../Images/wordsession.jpg");
+    }
+    h2 {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .form-grid {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group {
+      width: 100%;
+    }
+  }
   
-  @media screen and (max-width: 480px) {
+  @media (min-width: 641px) {
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+
+  /* @media screen and (max-width: 480px) {
     .register-form {
       padding: 0.5rem;
     }
@@ -124,7 +156,7 @@
     .mainTitle h2 {
       font-size: 1.5rem;
     }
-  }
+  } */
 
   select, input {
     background-color: #ffffff;
@@ -165,18 +197,6 @@
     margin: 0 auto;
   }
   
-  @media (max-width: 768px) {
-    .register-form {
-      padding: 15px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .form-group {
-      margin-bottom: 15px;
-    }
-  }
-
   button[type="submit"] {
     padding: 12px 24px;
     font-size: 18px;
@@ -198,12 +218,7 @@
     padding: 20px;
   }
   
-  @media (max-width: 768px) {
-    .heroSection {
-      background-image: url("../Images/wordsession.jpg");
-    }
-  }
-
+ 
   body {
     line-height: 1.6;
     color: #333333;
@@ -214,8 +229,4 @@
     margin-bottom: 24px;
   }
   
-  @media (max-width: 768px) {
-    h2 {
-      font-size: 24px;
-    }
-  }
+  

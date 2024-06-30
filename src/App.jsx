@@ -7,6 +7,7 @@ import Partners from './Pages/Partners'; // Create Partners.js for partners cont
 import PayStatus from './Pages/PayStatus';
 import Redirect from './Pages/Redirect';
 import ScrollToTop from './Components/ScrollToTop';
+import ChatbotIcon from './Components/ChatbotIcon';
 import './index.css';
 // import './assets/Styles/bootstrap.min.css';
 // import './assets/Styles/bootstrap-icons.css'; 
@@ -18,6 +19,7 @@ const App = () => {
     <>
       <Router>
         <ScrollToTop />
+        <ChatbotIcon />
         <Routes>
                
           <Route path="/" element={<Home />} />

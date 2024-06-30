@@ -162,16 +162,18 @@ const RegistrationForm = () => {
         }
       );
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Error response:", errorData);
-        console.error("Error response:", errorData.status);
-        console.error("Error response:", errorData.message);
-        throw new Error("Registration failed");
-      }
+      const data = await response.json();
+
+      // if (!response.ok) {
+      //   const errorData = await response.json();
+      //   console.error("Error response:", errorData);
+      //   console.error("Error response:", errorData.status);
+      //   console.error("Error response:", errorData.message);
+      //   throw new Error("Registration failed");
+      // }
 
       if (response.ok) {
-        const data = await response.json();
+
         navigate('/redirect', { 
           state: { 
             paymentLink: data.link,
@@ -237,7 +239,7 @@ const RegistrationForm = () => {
         style={{ backgroundImage: 'url("/images/wordsession.jpg")' }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
-        <div className="relative p-8 rounded-lg shadow-lg w-full max-w-xl bg-white mx-auto mt-3 mb-3 register-form">
+        <div className="relative p-4 sm:p-8 rounded-lg shadow-lg w-full max-w-xl bg-white mx-auto my-3 register-form overflow-y-auto max-h-[90vh]">
           <div className="text-center mb-6 mainTitle">
             <h2 className="text-yellow-500 font-bold text-4xl">
               {" "}
@@ -245,6 +247,7 @@ const RegistrationForm = () => {
             </h2>
           </div>
           <form id="registration-form" method="post" onSubmit={handleSubmit}>
+          <div className="form-grid">
             <div className="form-group firstname">
               <label
                 htmlFor="firstname"
@@ -259,7 +262,7 @@ const RegistrationForm = () => {
                 placeholder="Enter your firstname"
                 value={formData.firstname}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
               />
               <span className="error text-red-500 text-sm">
                 {errors.firstname}
@@ -279,7 +282,7 @@ const RegistrationForm = () => {
                 placeholder="Enter your lastname"
                 value={formData.lastname}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
               />
               <span className="error">{errors.lastname}</span>
             </div>
@@ -295,7 +298,7 @@ const RegistrationForm = () => {
                 name="gender"
                 value={formData.gender}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
               >
                 <option value="" disabled>
                   Select your gender
@@ -321,7 +324,7 @@ const RegistrationForm = () => {
                 placeholder="Enter your email address"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
               />
               <span className="error text-red-500 text-sm">{errors.email}</span>
             </div>
@@ -339,7 +342,7 @@ const RegistrationForm = () => {
                 placeholder="Select your date"
                 value={formData.birthdate}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
               />
               <span className="error text-red-500 text-sm">
                 {errors.birthdate}
@@ -359,7 +362,7 @@ const RegistrationForm = () => {
                 placeholder="Enter your phone number"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
               />
               <span className="error text-red-500 text-sm">{errors.phone}</span>
             </div>
@@ -377,7 +380,7 @@ const RegistrationForm = () => {
                 placeholder="Enter your address"
                 value={formData.address}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
               />
               <span className="error text-red-500 text-sm">
                 {errors.address}
@@ -398,7 +401,7 @@ const RegistrationForm = () => {
                   handleInputChange(e);
                   // handleMemberChange(e);
                 }}
-                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
               >
                 <option value="" disabled>
                   Select your membership status
@@ -425,7 +428,7 @@ const RegistrationForm = () => {
                   placeholder="Select your Zone"
                   value={formData.church_name}
                   onChange={handleInputChange}
-                  className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                  className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
                 >
                   <option value="" disabled>
                     Select your zone
@@ -460,7 +463,7 @@ const RegistrationForm = () => {
                   placeholder="Enter the name of your Ministry"
                   value={formData.church_name}
                   onChange={handleInputChange}
-                  className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                  className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
                 />
                 <span
                   className="error text-red-500 text-sm"
@@ -482,7 +485,7 @@ const RegistrationForm = () => {
                 name="is_aware_of_convention"
                 value={formData.is_aware_of_convention}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
               >
                 <option value="" disabled>
                   Select
@@ -512,7 +515,7 @@ const RegistrationForm = () => {
                   handleInputChange(e);
                   handleCampingChange(e);
                 }}
-                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
               >
                 <option value="" disabled>
                   Choose option
@@ -543,7 +546,7 @@ const RegistrationForm = () => {
                   name="attendance_mode"
                   value={formData.attendance_mode}
                   onChange={handleInputChange}
-                  className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                  className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
                 >
                   <option value="" disabled>
                     Choose an option
@@ -571,7 +574,7 @@ const RegistrationForm = () => {
                 name="was_participant"
                 value={formData.was_participant}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
               >
                 <option value="" disabled>
                   Choose an option
@@ -602,7 +605,7 @@ const RegistrationForm = () => {
                   handleInputChange(e);
                   handleHealthConditionChange(e);
                 }}
-                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
               >
                 <option value="" disabled>
                   Choose an option
@@ -632,7 +635,7 @@ const RegistrationForm = () => {
                   placeholder="State your health condition(s)"
                   value={formData.health_issue}
                   onChange={handleInputChange}
-                  className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                  className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
                 />
                 <span
                   className="error text-red-500 text-sm"
@@ -655,7 +658,7 @@ const RegistrationForm = () => {
                 name="reach"
                 value={formData.reach}
                 onChange={handleInputChange}
-                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm"
+                className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
               >
                 <option value="" disabled>
                   Choose an option
@@ -672,10 +675,11 @@ const RegistrationForm = () => {
                 {errors.reach}
               </span>
             </div>
-            <div className="form-group submit submit-btn mt-0 hover:text-yellow-700">
+            </div>
+            <div className="form-group submit submit-btn mt-4"> 
               <button
                 type="submit"
-                className="bg-yellow-500 text-white px-4 py-2 rounded w-full sm:w-auto"
+                className="bg-yellow-500 text-white px-4 py-2 rounded w-full"
               >
                 Register
               </button>
@@ -690,8 +694,9 @@ const RegistrationForm = () => {
 export default RegistrationForm;
 
 
+//hover:text-yellow-700 ist btn div class
 
-
+//hover:text-yellow-700
 
 
 

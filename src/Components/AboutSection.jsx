@@ -8,130 +8,205 @@ import "../assets/Styles/templatemo-festava-live.css";
 import Theword from '../assets/Images/Theword.jpg';
 import PraiseSession from '../assets/Images/PraiseSession.jpg';
 import FamilyExperience from '../assets/Images/FamilyExperience.jpg';
+import styled from 'styled-components';
+
+const Section = styled.section`
+  padding: 60px 0;
+  background-color: ${props => props.dark ? '#000' : '#f8f9fa'};
+
+  @media (max-width: 768px) {
+    padding: 40px 0;
+  }
+`;
+
+const Container = styled.div`
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const Title = styled.h2`
+  color: ${props => props.dark ? '#FFD700' : 'black'};
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+`;
+
+const Row = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const Column = styled.div`
+  flex: ${props => props.full ? '0 0 100%' : '0 0 50%'};
+  max-width: ${props => props.full ? '100%' : '50%'};
+  padding: 15px;
+
+  @media (max-width: 768px) {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+`;
+
+const Text = styled.p`
+  color: ${props => props.dark ? '#fff' : '#333'};
+  font-size: 1.25rem;
+  text-align: justify;
+  margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+`;
+
+const ImageCaption = styled.div`
+  margin-top: 1rem;
+
+  h4 {
+    color: ${props => props.dark ? '#FFD700' : '#333'};
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.25rem;
+    }
+  }
+
+  p {
+    color: ${props => props.dark ? '#fff' : '#666'};
+    font-size: 1rem;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
+  }
+`;
+
+const ArtistThumb = styled.div`
+  position: relative;
+  margin-bottom: 30px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
+const ArtistImage = styled.img`
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+
+  ${ArtistThumb}:hover & {
+    transform: scale(1.1);
+  }
+`;
+
+const ArtistHover = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 215, 0, 0.9); // Golden color with slight transparency
+  color: white;
+  padding: 15px;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+
+  ${ArtistThumb}:hover & {
+    transform: translateY(0);
+  }
+  p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  `;
 
 
 const AboutSection = () => {
   return (
     <>
- <section className="about-section section-padding" id="section_2">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
-            <div className="services-info">
-              <h2
-                className="mb-4 text-center"
-                style={{
-                  color: '#FFD700', // Gold color
-                  fontSize: '3rem',
-                }}
-              >
-                About TLBC'24
-              </h2>
-              <p className="text-white" style={{ fontSize: '1.25rem', textAlign: 'justify' }}>
+ <Section dark id="section_2">
+        <Container>
+          <Row>
+            <Column>
+              <Title dark>About TLBC'24</Title>
+              <Text dark>
                 The Lord's Brethren Convocation (TLBC) is an annual glorious homecoming of stakeholders in The Lord's Brethren Nation where we celebrate our partners, victories, joys, successes, conquests, coups, and feats. It is an event that everyone who joined forces with our vision to push for the propagation of the Gospel always anticipates with joy and excitement every year.
-              </p>
-              <p className="text-white" style={{ fontSize: '1.25rem', textAlign: 'justify' }}>
+              </Text>
+              <Text dark>
                 It's a meeting that affords us the opportunity to celebrate our pastors, partners, and ministry departments in grand style and also highlights all that has been achieved in the work of the ministry every year.
-              </p>
-              <p className="text-white" style={{ fontSize: '1.25rem', textAlign: 'justify' }}>
+              </Text>
+              <Text dark>
                 This year's convocation is going to be a meeting of worship, teachings, impartation, awards, and of course, The Lord's Brethren Family meeting.
-              </p>
-            </div>
-          </div>
-          <div className="col-lg-6 col-12">
-            <div className="about-text-wrap">
-              <img
+              </Text>
+            </Column>
+            <Column>
+              <Image
                 src="images/brethren-4-1024x683.jpg"
-                className="about-image img-fluid"
                 alt="Brethren"
               />
-              <div className="about-text-info d-flex mt-3">
-                <div className="ms-4">
-                  <h4>Our Annual Homecoming</h4>
-                  <p className="mb-0">An amazing experience</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+              <ImageCaption dark>
+                <h4>Our Annual Homecoming</h4>
+                <p>An amazing experience</p>
+              </ImageCaption>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
 
-      
-      <section className="artists-section section-padding" id="section_3">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-12 text-center">
-              <h2 
-              className="mb-4 text-center"
-                style={{
-                  color: 'black', // Gold color
-                  fontSize: '3.2rem',
-                }}
-              >What to expect</h2>
-            </div>
-            <div className="col-lg-5 col-12">
-              <div className="artists-thumb">
-                <div className="artists-image-wrap">
-                  <img
-                    src={Theword}
-                    className="artists-image img-fluid"
-                    alt="Testimonies"
-                  />
-                </div>
-                <div className="artists-hover">
-                  <p>
-                    <strong>The Word</strong>
-                  </p>
-                </div>
-              </div>
-              <div className="artists-thumb">
-                <div className="artists-image-wrap">
-                  <img
-                    src={PraiseSession}
-                    className="artists-image img-fluid"
-                    alt="Dance"
-                  />
-                </div>
-                <div className="artists-hover">
-                  <p>
-                    <strong>Praise Moments</strong>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-5 col-12">
-              <div className="artists-thumb">
-                <div className="artists-image-wrap">
-                  <img
-                    src="images/worship.jpg"
-                    className="artists-image img-fluid"
-                    alt="Worship"
-                  />
-                </div>
-                <div className="artists-hover">
-                  <p>
-                    <strong>Worship Experience</strong>
-                  </p>
-                </div>
-              </div>
-              <div className="artists-thumb">
-                <img
-                  src={FamilyExperience}
-                  className="artists-image img-fluid"
-                  alt="Prayers"
-                />
-                <div className="artists-hover">
-                  <p>
-                    <strong>FamilyExperience</strong>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <Section id="section_3">
+        <Container>
+          <Title>What to expect</Title>
+          <Row>
+            <Column>
+              <ArtistThumb>
+                <ArtistImage src={Theword} alt="The Word" />
+                <ArtistHover>
+                  <p>The Word</p>
+                </ArtistHover>
+              </ArtistThumb>
+              <ArtistThumb>
+                <ArtistImage src={PraiseSession} alt="Praise Moments" />
+                <ArtistHover>
+                  <p>Praise Moments</p>
+                </ArtistHover>
+              </ArtistThumb>
+            </Column>
+            <Column>
+              <ArtistThumb>
+                <ArtistImage src="images/worship.jpg" alt="Worship Experience" />
+                <ArtistHover>
+                  <p>Worship Experience</p>
+                </ArtistHover>
+              </ArtistThumb>
+              <ArtistThumb>
+                <ArtistImage src={FamilyExperience} alt="Family Experience" />
+                <ArtistHover>
+                  <p>Family Experience</p>
+                </ArtistHover>
+              </ArtistThumb>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
       <ContactSection />
 
       
@@ -144,9 +219,37 @@ export default AboutSection;
 
 
 
+
+
+     
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
-
-
  <section className="about-section section-padding" id="section_4">
         <div className="container">
           <div className="row">

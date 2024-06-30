@@ -1,3 +1,91 @@
+@media (max-width: 768px) {
+  .register-form {
+    padding: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .submit-btn {
+    margin-top: 1rem;
+  }
+
+  #partnership-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+/* Ensure the button works on all devices */
+button[type="submit"] {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:active {
+  background-color: #d97706; /* Darker yellow on hover/active */
+}
+
+/* Style adjustments for react-select on mobile */
+@media (max-width: 768px) {
+  .react-select-container {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .react-select-container {
+    font-size: 14px;
+  }
+}
+
+.react-select-container .react-select__control {
+  border-color: #d1d5db;
+  box-shadow: none;
+}
+
+.react-select-container .react-select__control:hover {
+  border-color: #9ca3af;
+}
+
+.react-select-container .react-select__control--is-focused {
+  border-color: #eab308;
+  box-shadow: 0 0 0 1px #eab308;
+}
+
+.react-select-container .react-select__menu {
+  z-index: 2;
+}
+
+.react-select-container .react-select__option--is-selected {
+  background-color: #eab308;
+}
+
+.react-select-container .react-select__option--is-focused {
+  background-color: #fde68a;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* .form-container {
     display: flex;
     flex-direction: column;
@@ -65,36 +153,3 @@
     background-color: #0056b3;
   }
    */
-
-
-   @media (max-width: 640px) {
-    .react-select-container {
-      font-size: 14px;
-    }
-  }
-  
-  .react-select-container .react-select__control {
-    border-color: #d1d5db;
-    box-shadow: none;
-  }
-  
-  .react-select-container .react-select__control:hover {
-    border-color: #9ca3af;
-  }
-  
-  .react-select-container .react-select__control--is-focused {
-    border-color: #eab308;
-    box-shadow: 0 0 0 1px #eab308;
-  }
-  
-  .react-select-container .react-select__menu {
-    z-index: 2;
-  }
-  
-  .react-select-container .react-select__option--is-selected {
-    background-color: #eab308;
-  }
-  
-  .react-select-container .react-select__option--is-focused {
-    background-color: #fde68a;
-  }

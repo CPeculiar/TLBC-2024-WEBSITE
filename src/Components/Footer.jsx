@@ -13,10 +13,10 @@ const Footer = () => {
           <div className="container">
             <div className="row">
               <div className="col-lg-6 col-12">
-                <h2 className="text-white mb-lg-0 text-xl font-bold mb-2 ml-0 md:ml-[-6rem]">THE LORD'S BRETHREN CONVOCATION'24</h2>
+                <h2 className="text-white mb-lg-0 text-xl font-bold mb-2">THE LORD'S BRETHREN CONVOCATION'24</h2>
               </div>
               <div className="col-lg-6 col-12 d-flex justify-content-lg-end align-items-center">
-                <ul className="social-icon d-flex justify-content-lg-start mr-0 md:mr-[-7rem]">
+                <ul className="social-icon d-flex justify-content-lg-start">
                   <li className="social-icon-item">
                     <a
                       href="https://web.facebook.com/thelordsbrethrenchurchintl"

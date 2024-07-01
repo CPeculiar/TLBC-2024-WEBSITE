@@ -20,7 +20,7 @@ const Navbar = () => {
                 </svg>
               </button>
               <Link to="/" className="text-white text-[13px] font-bold">
-                <img src={TLBCWEBLOGO} className='md:w-60 h-12 ml-[3rem] md:ml-[-6rem]'/>
+                <img src={TLBCWEBLOGO} className='md:w-60 h-12'/>
               </Link>
             </div>
             <div className="hidden md:flex md:items-center mb-[-27px]">

@@ -21,7 +21,7 @@ const Section = styled.section`
 
 const Container = styled.div`
   width: 100%;
-  max-width: 1580px;
+  max-width: 1450px;
   margin: 0 auto;
 
   @media (max-width: 768px) {

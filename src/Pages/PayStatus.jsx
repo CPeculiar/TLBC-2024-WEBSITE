@@ -38,22 +38,23 @@ const PayStatus = () => {
               <h2 className="text-2xl font-bold text-green-600">
                 Payment Successful
               </h2>
-              <p>
-                {" "}
-                Thank you for registering for TLBC 2024. <br />
-                Blessings!
-              </p>
               <div className="mt-4 text-left">
-                <p>
+                <p className="mb-3">
                   <strong className="font-semibold">
-                    Transaction Reference:
+                   Your Transaction Reference:
                   </strong>{" "}
                   {txRef}
                 </p>
-                <p>
+              <p>
+                {" "}
+                Thank you for registering for TLBC 2024. <br />
+                <p className="text-center mt-2">Blessings!</p>
+              </p>
+             
+                {/* <p>
                   <strong className="font-semibold">Reference ID:</strong>{" "}
                   {referenceId}
-                </p>
+                </p> */}
               </div>
               <button
             onClick={handleClose}
@@ -81,12 +82,12 @@ const PayStatus = () => {
               <p>
                 {" "}
                 Please try again or contact <br />
-                us on +2349134445037 if you are experiencing any problem.
+                us on +2349134445037, <br /> if you are experiencing any problem.
               </p>
               {status === "cancelled" && (
                 <p className="mt-3 text-center">
                 <strong className="font-semibold">
-                    Transaction Reference:
+                    Your Transaction Reference:
                   </strong>{" "}
                   {txRef}
                 </p>

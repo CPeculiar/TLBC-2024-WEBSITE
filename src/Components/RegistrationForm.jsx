@@ -655,7 +655,7 @@ const RegistrationForm = () => {
                   name="reach"
                   value={formData.reach}
                   onChange={handleInputChange}
-                  className="mt-1 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
+                  className="mt-1 mb-2 p-2 border border-gray-300 rounded w-full text-sm appearance-none"
                 >
                   <option value="" disabled>
                     Choose an option
@@ -668,7 +668,7 @@ const RegistrationForm = () => {
                   <option value="Friend">A friend</option>
                   <option value="Outreach">Outreach</option>
                 </select>
-                <span className="error text-red-500 text-sm" id="reach-error">
+                <span className="error text-red-500 text-sm mb-1" id="reach-error">
                   {errors.reach}
                 </span>
               </div>
@@ -681,15 +681,15 @@ const RegistrationForm = () => {
                   id="termsCheckbox"
                   checked={termsAccepted}
                   onChange={handleTermsAccepted}
-                  className="absolute top-0 left-[-260px] mt-1 h-4 w-4 cursor-pointer"
+                  className="absolute top-[-15px] left-[-210px] mt-1 h-4 w-4 cursor-pointer"
                 />
                 <label
                   htmlFor="termsCheckbox"
-                  className="text-sm cursor-pointer pl-6 leading-tight"
+                  className="text-sm cursor-pointer pl-6 leading-tight mt-3"
                   style={{ marginTop: '0.25rem' }} // Adjust the margin top value as needed
                 >
                   Please note that trousers and any form of indecent dressing
-                  will not be allowed for females. Check this box if you consent
+                  will not be allowed for females. Check the box above if you consent
                   to this.
                 </label>
               </div>

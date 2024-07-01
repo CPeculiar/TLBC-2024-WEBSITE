@@ -15,9 +15,10 @@ const ChatbotIcon = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Replace this with your WhatsApp number
-    const whatsappNumber = '2349046515936';
+    const whatsappNumber = '2349134445037';
     const message = `Hello, my name is ${userData.fullName}, my email address is ${userData.email} 
-                    and here is my contact number ${userData.phoneNumber}. I'd like to chat with an admin.`;
+                    and my number is ${userData.phoneNumber}. ${<br/>} 
+                    I'll like to chat with an admin as touching TLBC'24.`;
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappUrl;
   };

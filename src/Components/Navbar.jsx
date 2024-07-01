@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import TLBCWEBLOGO from '../assets/Images/TLBCWEBLOGO.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,10 +20,10 @@ const Navbar = () => {
                 </svg>
               </button>
               <Link to="/" className="text-white text-[13px] font-bold">
-                THE LORD'S <br/> BRETHREN CONVOCATION
+                <img src={TLBCWEBLOGO} className='md:w-60 h-12 ml-[3rem] md:ml-[-6rem]'/>
               </Link>
             </div>
-            <div className="hidden md:flex md:items-center">
+            <div className="hidden md:flex md:items-center mb-[-27px]">
               <NavItems />
             </div>
           </div>

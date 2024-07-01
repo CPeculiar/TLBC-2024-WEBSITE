@@ -11,7 +11,7 @@ import FamilyExperience from '../assets/Images/FamilyExperience.jpg';
 import styled from 'styled-components';
 
 const Section = styled.section`
-  padding: 60px 0;
+  padding: 69px 0;
   background-color: ${props => props.dark ? '#000' : '#f8f9fa'};
 
   @media (max-width: 768px) {
@@ -20,14 +20,21 @@ const Section = styled.section`
 `;
 
 const Container = styled.div`
-  width: 90%;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1580px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    width: 90%;
+    max-width: 1200px;
+     margin: 0 auto;
+  }
 `;
 
 const Title = styled.h2`
   color: ${props => props.dark ? '#FFD700' : 'black'};
-  font-size: 3rem;
+  font-size: 3.5rem;
   text-align: center;
   margin-bottom: 2rem;
 
@@ -59,9 +66,10 @@ const Column = styled.div`
 
 const Text = styled.p`
   color: ${props => props.dark ? '#fff' : '#333'};
-  font-size: 1.25rem;
+  font-size: 1.38rem;
   text-align: justify;
   margin-bottom: 1rem;
+  margin-right: 1.5rem;
 
   @media (max-width: 768px) {
     font-size: 1rem;

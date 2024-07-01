@@ -13,10 +13,10 @@ const Footer = () => {
           <div className="container">
             <div className="row">
               <div className="col-lg-6 col-12">
-                <h2 className="text-white mb-lg-0 font-semibold">THE LORD'S BRETHREN CONVOCATION</h2>
+                <h2 className="text-white mb-lg-0 text-xl font-bold mb-2 ml-0 md:ml-[-6rem]">THE LORD'S BRETHREN CONVOCATION'24</h2>
               </div>
               <div className="col-lg-6 col-12 d-flex justify-content-lg-end align-items-center">
-                <ul className="social-icon d-flex justify-content-lg-end">
+                <ul className="social-icon d-flex justify-content-lg-start mr-0 md:mr-[-7rem]">
                   <li className="social-icon-item">
                     <a
                       href="https://web.facebook.com/thelordsbrethrenchurchintl"
@@ -83,8 +83,8 @@ const Footer = () => {
             <div className="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
               <h5 className="site-footer-title mb-3">Have a question?</h5>
               <p className="text-white d-flex mb-1">
-                <a href="tel:090-3186-8409" className="site-footer-link hover:text-yellow-700">
-                  090-3186-8409
+                <a href="tel:091-3444-5037" className="site-footer-link hover:text-yellow-700">
+                +2349134445037
                 </a>
               </p>
               <p className="text-white d-flex">

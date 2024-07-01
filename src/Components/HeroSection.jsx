@@ -1,6 +1,7 @@
 import React from "react";
 import Dateicon from '../assets/Images/calendar1.svg';
 import Locationicon from '../assets/Images/location2.svg';
+
 // import Shareicon from '../assets/Images/shareicon.svg';
 
 const HeroSection = () => {
@@ -40,7 +41,7 @@ const HeroSection = () => {
             </h5>
           </div> 
           <div className="flex items-center justify-center">
-            <div className="p-1 sm:p-2 rounded-full mr-1 sm:mr-1">
+            <div className="p-1 sm:p-2 rounded-full mr-0 sm:mr-1">
               <img src={Locationicon} alt="Location" className="bg-white h-4 w-4 sm:h-5 sm:w-5 lg:mr-[9px] lg:h-6 lg:w-6" />
             </div>
             <h5 className="text-white text-sm font-semibold sm:text-base lg:text-lg xl:text-xl">

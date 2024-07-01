@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import '../assets/Styles/Gallery.css';
+import '../assets/Styles/Gallery.css';  
+
 
 const GalleryContainer = styled.div`
-  max-width: 1200px;
+  max-width: 1550px;
   margin: 0 auto;
   padding: 20px;
 `;
@@ -30,7 +31,7 @@ const SectionDescription = styled.p`
 
 const GalleryGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  ${'' /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */}
   gap: 20px;
 
   @media (max-width: 768px) {
